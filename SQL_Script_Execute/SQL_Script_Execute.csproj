@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_database_backup_16__2__v9B_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClosedXML, Version=0.93.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.93.1\lib\net46\ClosedXML.dll</HintPath>
@@ -149,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\spinner_32.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8_database_backup_16__2__v9B_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
