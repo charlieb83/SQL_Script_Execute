@@ -160,9 +160,13 @@ namespace SQL_Script_Execute
             MessageBox.Show("Coming soon!");
         }
 
+
+        /*-----------------------------------------------------
+        Windows Auth Clicked
+        -----------------------------------------------------*/
         private void checkBoxWindowsAuthentication_MouseClick(object sender, MouseEventArgs e)
         {
-
+            SetupUserNamePasswordTextbox();
         }
 
         /*-----------------------------------------------------
