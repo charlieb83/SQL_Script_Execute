@@ -39,6 +39,7 @@ namespace SQL_Script_Execute
             //Setup DataTable for Excel
             excelDataTable.Clear();
             excelDataTable.Columns.Add("Server");
+            excelDataTable.Columns.Add("LinkToFile");
             excelDataTable.Columns.Add("File");
             excelDataTable.Columns.Add("SuccessOrError");
             excelDataTable.Columns.Add("Date");
@@ -490,9 +491,10 @@ namespace SQL_Script_Execute
             DataRow dr = excelDataTable.NewRow();
             dr[0] = server;     //Server
             dr[1] = file;       //File
-            dr[2] = status;     //Status
-            dr[3] = date;       //Date
-            dr[4] = message;    //Message
+            dr[2] = file;       //HyperLink To File Path    --"=HYPERLINK(\"" + file + "\", \"" + linkName + "\")";
+            dr[3] = status;     //Status
+            dr[4] = date;       //Date
+            dr[5] = message;    //Message
             excelDataTable.Rows.Add(dr);//Add to end of the datatable
         }
 
@@ -594,16 +596,43 @@ namespace SQL_Script_Execute
 
         /*-----------------------------------------------------
         Write To Excel Log
-        -----------------------------------------------------*/
+        -----------------------------------------------------*/        
         private void WriteToExcelLog()
         {
             // use ClosedXML to write to excel
             using (var book = new XLWorkbook(XLEventTracking.Disabled))
             {
-                book.Worksheets.Add(excelDataTable, "ExcelLog");
+                var ws = book.Worksheets.Add(excelDataTable, "ExcelLog");
                 book.SaveAs(od.ExcelFileName);
+                //Total Rows in SS
+                //var totalRows = ws.RowsUsed().Count();
+
+                int currentRow = 0;
+                string hyperLinkValue;
+
+                //Loop through spreadsheet to set Hyperlinks
+                foreach (var row in book.Worksheet("ExcelLog").Rows())
+                {
+                    currentRow++;
+
+                    //Skip Header Row
+                    if (currentRow > 1)
+                    {
+                        //MessageBox.Show(row.Cell(2).GetString());
+                        hyperLinkValue = row.Cell(2).GetString();
+
+                        //Check if cell is blank
+                        if (!string.IsNullOrWhiteSpace(hyperLinkValue))
+                        {
+                            row.Cell(2).Value = "Link To File";
+                            row.Cell(2).Hyperlink = new XLHyperlink(hyperLinkValue);
+                        }
+                    }
+                }
+                book.Save();
             }
         }
+
 
     }
 

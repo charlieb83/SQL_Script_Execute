@@ -95,6 +95,7 @@ namespace SQL_Script_Execute
         private void OptionsConfig_Load(object sender, EventArgs e)
         {
             SetupRadioButtons();
+            SetupUserNamePasswordTextbox();
         }
 
 
@@ -158,5 +159,31 @@ namespace SQL_Script_Execute
         {
             MessageBox.Show("Coming soon!");
         }
+
+        private void checkBoxWindowsAuthentication_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        /*-----------------------------------------------------
+        Setup UserName/Password Textboxes
+        -----------------------------------------------------*/
+        private void SetupUserNamePasswordTextbox()
+        {
+            if (checkBoxWindowsAuthentication.Checked == true)
+            {
+                textBoxUserName.Enabled = false;
+                textBoxPassword.Enabled = false;
+            }
+            else
+            {
+                textBoxUserName.Enabled = true;
+                textBoxPassword.Enabled = true;
+
+            }
+        }
+
+
+
     }
 }

@@ -41,6 +41,8 @@
             this.checkBoxIncludeSubfolders = new System.Windows.Forms.CheckBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelLogFileName = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.checkBoxLogErrorsOnly = new System.Windows.Forms.CheckBox();
             this.checkBoxLogCreateExcel = new System.Windows.Forms.CheckBox();
             this.checkBoxUseDefaultLogPath = new System.Windows.Forms.CheckBox();
@@ -56,8 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.checkBoxWindowsAuthentication = new System.Windows.Forms.CheckBox();
-            this.labelLogFileName = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -266,6 +266,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Log";
             // 
+            // labelLogFileName
+            // 
+            this.labelLogFileName.AutoSize = true;
+            this.labelLogFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLogFileName.Location = new System.Drawing.Point(87, 60);
+            this.labelLogFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLogFileName.Name = "labelLogFileName";
+            this.labelLogFileName.Size = new System.Drawing.Size(80, 13);
+            this.labelLogFileName.TabIndex = 6;
+            this.labelLogFileName.Text = "LogFileName";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 60);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Log FileName:";
+            // 
             // checkBoxLogErrorsOnly
             // 
             this.checkBoxLogErrorsOnly.AutoSize = true;
@@ -425,28 +447,7 @@
             this.checkBoxWindowsAuthentication.TabIndex = 0;
             this.checkBoxWindowsAuthentication.Text = "Use Windows Authentication";
             this.checkBoxWindowsAuthentication.UseVisualStyleBackColor = true;
-            // 
-            // labelLogFileName
-            // 
-            this.labelLogFileName.AutoSize = true;
-            this.labelLogFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogFileName.Location = new System.Drawing.Point(87, 60);
-            this.labelLogFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelLogFileName.Name = "labelLogFileName";
-            this.labelLogFileName.Size = new System.Drawing.Size(80, 13);
-            this.labelLogFileName.TabIndex = 6;
-            this.labelLogFileName.Text = "LogFileName";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(14, 60);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Log FileName:";
+            this.checkBoxWindowsAuthentication.MouseClick += new System.Windows.Forms.MouseEventHandler(this.checkBoxWindowsAuthentication_MouseClick);
             // 
             // OptionsConfig
             // 
